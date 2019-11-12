@@ -1,7 +1,7 @@
 var buttonContainer = document.getElementById('button-container');
 var colorSelect = document.getElementById('select-color');
 var addBtn = document.getElementById('add-new');
-var remBtn = document.getElementById('remove-button');
+var remBtn = document.getElementById('remove-current');
 
 initDropdownColors();
 
@@ -53,7 +53,7 @@ var newPopBtn = document.createElement('button');
 addBtn.addEventListener('click', handleAddBtn);
 
 function handleAddBtn() {
-  if(colorSelect.value !== 'not-real-value'){
+  if(colorSelect.value !== 'not-real-value') {
     addButton(colorSelect.value);
     removeOption(colorSelect.value);
   } else {
@@ -65,26 +65,16 @@ function removeOption(color) {
   document.querySelector('option[value=' + color + ']').remove();
 }
 
+function removeButton(color) {
+  //document.querySelector('button[value=' + color + ']').remove();
+  //document.buttonContainer.removeChild(color);
+  var remBtn = document.getElementsByClassName('button');
+}
+
 remBtn.addEventListener('click', handleRemBtn);
 
 function handleRemBtn() {
-  document.querySelector('button[value=' + color + ']').remove();
-  addColor(color);
-  document.body.style.backgroundColor = white; 
+  removeButton(colorSelect.value);
+  addColor(colorSelect.value);
+  document.body.style.backgroundColor = 'white'; 
 }
-
-// //To remove buttons: just do handleAddBtn, but opposite
-// remBtn.addEventListener('click', handleRemBtn);
-
-// function addOption(color) {
-//   document.querySelector('button[value=' + color + ']').remove();
-// }
-
-// function removeOption(color) {
-//   document.querySelector('button[value=' + color + ']').remove();
-// }
-
-// function handleRmvBtn() {
-//   remButton(colorSelect.value);
-//   addOption(colorSelect.value);
-// }
