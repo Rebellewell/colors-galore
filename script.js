@@ -69,12 +69,10 @@ remBtn.addEventListener('click', handleRemBtn);
 
 // When this function is active, it removes all my buttons and options.
 
-// function removeButton ('button') {
-//   var remBtn = document.removeElement('button');
-//   if remBtn === document.body.style.backgroundColor {
-//     button.parentNode.removeChild('button');
-//   } 
-// }
+function removeButton(button) {
+  var currentDocColor = document.body.style.backgroundColor;
+  document.querySelector('button[value=' + currentDocColor + ']').remove();
+}
 
 function handleRemBtn() {
   var currentDocColor = document.body.style.backgroundColor;
