@@ -65,16 +65,20 @@ function removeOption(color) {
   document.querySelector('option[value=' + color + ']').remove();
 }
 
-function removeButton(color) {
-  //document.querySelector('button[value=' + color + ']').remove();
-  //document.buttonContainer.removeChild(color);
-  var remBtn = document.getElementsByClassName('button');
-}
-
 remBtn.addEventListener('click', handleRemBtn);
 
+// When this function is active, it removes all my buttons and options.
+
+// function removeButton ('button') {
+//   var remBtn = document.removeElement('button');
+//   if remBtn === document.body.style.backgroundColor {
+//     button.parentNode.removeChild('button');
+//   } 
+// }
+
 function handleRemBtn() {
-  removeButton(colorSelect.value);
-  addColor(colorSelect.value);
-  document.body.style.backgroundColor = 'white'; 
+  var currentDocColor = document.body.style.backgroundColor;
+  removeButton(currentDocColor);
+  addColor(currentDocColor);
+  document.body.style.backgroundColor = 'white';
 }
