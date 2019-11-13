@@ -9,24 +9,16 @@ function addButton(color) {
   var newButton = document.createElement('button');
   newButton.innerText = color;
   newButton.value = color;
+  newButton.id = color.toLowerCase();
   newButton.style.backgroundColor = color;
   newButton.classList.add('button');
   buttonContainer.appendChild(newButton);
 }
 
 //Creating original buttons
-function ogButtons(color) {
-  var original = document.createElement('button');
-  original.innerText = color;
-  original.value = color;
-  original.style.backgroundColor = color;
-  original.classList.add('button');
-  buttonContainer.appendChild(original);
-}
-
-ogButtons('Green');
-ogButtons('Red');
-ogButtons('Yellow');
+addButton('Green');
+addButton('Red');
+addButton('Yellow');
 
 buttonContainer.addEventListener('click', colorChange);
 
@@ -43,7 +35,7 @@ function initDropdownColors() {
 
 function addColor(color) {
   var newColor = document.createElement('option');
-  newColor.innerText = color;
+  newColor.innerText = color.toLowerCase();
   newColor.value = color;
   colorSelect.appendChild(newColor);
 }
@@ -65,14 +57,11 @@ function removeOption(color) {
   document.querySelector('option[value=' + color + ']').remove();
 }
 
-remBtn.addEventListener('click', handleRemBtn);
-
-// When this function is active, it removes all my buttons and options.
-
-function removeButton(button) {
-  var currentDocColor = document.body.style.backgroundColor;
-  document.querySelector('button[value=' + currentDocColor + ']').remove();
+function removeButton(color) {
+  document.getElementById(color).remove();
 }
+
+remBtn.addEventListener('click', handleRemBtn);
 
 function handleRemBtn() {
   var currentDocColor = document.body.style.backgroundColor;
